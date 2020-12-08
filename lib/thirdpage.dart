@@ -1,3 +1,4 @@
+import 'package:debug/firabeseconnet.dart';
 import 'package:flutter/material.dart';
 
 class ThirdPage extends StatelessWidget {
@@ -19,6 +20,15 @@ class ThirdPage extends StatelessWidget {
                 color: Colors.yellowAccent,
               ),
               Container(
+                child: RaisedButton(
+                  child: new Text('Hi'),
+                  onPressed: () {
+                    Route route = MaterialPageRoute(
+                        builder: (context) =>
+                            ProfilePage()); //burası fribase.dart da profilepage kısmına götürdü
+                    Navigator.push(context, route);
+                  },
+                ),
                 width: 50,
                 height: 100,
                 color: Colors.blue,

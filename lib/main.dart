@@ -1,13 +1,18 @@
 //class kütüphanelerini import ettik
 import 'package:debug/secondpage.dart';
 import 'package:debug/thirdpage.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'firstpage.dart';
 import 'secondpage.dart';
 import 'thirdpage.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
 
 class MyApp extends StatefulWidget {
   @override
@@ -43,7 +48,7 @@ class UygulamaSayfasi extends State<MyApp> {
           ),
           title: Center(
             child: Image.asset(
-              'assets/images/debugLogo.png',
+              'assets/images/logo3.png',
               cacheHeight: 100,
               cacheWidth: 100,
               height: 100,

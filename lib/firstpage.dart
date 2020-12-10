@@ -18,9 +18,14 @@ class FirstPage extends StatelessWidget {
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: <Widget>[
-                        Container(
-                          width: 300,
-                          color: Colors.grey,
+                        GestureDetector(
+                          onTap: () {
+                            print("Tiklandı");
+                          },
+                          child: Container(
+                            width: 300,
+                            color: Colors.grey,
+                          ),
                         ),
                         Container(
                           width: 300,

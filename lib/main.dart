@@ -72,7 +72,7 @@ class UygulamaSayfasi extends State<MyApp> {
               ),
               // ignore: deprecated_member_use
               title: Text(
-                'Haberler',
+                'Ana Sayfa',
                 style: TextStyle(color: Colors.orange),
               ),
             ),
@@ -94,7 +94,7 @@ class UygulamaSayfasi extends State<MyApp> {
               ),
               // ignore: deprecated_member_use
               title: Text(
-                'Oyun',
+                'Sıradışı',
                 style: TextStyle(color: Colors.deepPurple),
               ),
             ),

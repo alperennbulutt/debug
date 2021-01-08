@@ -34,7 +34,7 @@ class ThirdPage extends StatelessWidget {
                           return SafeArea(
                             child: Container(
                               margin: EdgeInsets.all(3.0),
-                              color: Colors.white,
+                              color: Colors.white60,
                               height: _size.height * 0.2,
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
@@ -107,7 +107,7 @@ class ThirdPage extends StatelessWidget {
       ),
     );
   }
-
+/*
   //firebase e ekleme fonksiyonu
   CollectionReference users =
       FirebaseFirestore.instance.collection('kullanici');
@@ -121,5 +121,5 @@ class ThirdPage extends StatelessWidget {
         .then((value) => print(
             "User Added")) //buradaki then eğerki add fonksiyonu başarılı olursa burası çalışacaktır
         .catchError((error) => print("Failed to add user: $error"));
-  }
+  }*/
 }

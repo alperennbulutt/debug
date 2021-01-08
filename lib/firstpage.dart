@@ -1,3 +1,4 @@
+import 'package:debug/detailPages/firstpagedetail.dart';
 import 'package:flutter/material.dart';
 
 class FirstPage extends StatelessWidget {
@@ -20,7 +21,11 @@ class FirstPage extends StatelessWidget {
                       children: <Widget>[
                         GestureDetector(
                           onTap: () {
-                            print("Tiklandı");
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => FirstPageDetail()),
+                            );
                           },
                           child: Container(
                             width: 300,
@@ -44,7 +49,7 @@ class FirstPage extends StatelessWidget {
                   ),
                   //2.kısım dikey kayan yer
                   Container(
-                    height: 200,
+                    height: 300,
                     child: ListView(
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
@@ -94,11 +99,11 @@ class FirstPage extends StatelessWidget {
                   ),
                   //3.kısım yatay kayan yer
                   Container(
-                    height: 400,
+                    height: 500,
                     child: GridView.count(
                       scrollDirection: Axis.horizontal,
                       crossAxisCount: 2,
-                      children: List.generate(10, (index) {
+                      children: List.generate(8, (index) {
                         return Container(
                           child: Card(
                             shape: RoundedRectangleBorder(

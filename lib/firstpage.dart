@@ -24,7 +24,7 @@ class FirstPage extends StatelessWidget {
                   ),
                 )
               : GridView.builder(
-                  scrollDirection: Axis.horizontal,
+                  scrollDirection: Axis.vertical,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 1),
                   itemCount: snapshot.data.docs.length,
@@ -36,7 +36,7 @@ class FirstPage extends StatelessWidget {
                           Container(
                             color: Colors.green,
                             width: 400,
-                            height: 300,
+                            height: 400,
                             child: Card(
                               child: GestureDetector(
                                 onTap: () {

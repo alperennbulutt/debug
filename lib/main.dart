@@ -47,12 +47,12 @@ class UygulamaSayfasi extends State<MyApp> {
                 bottomRight: Radius.circular(20)),
           ),
           title: Center(
-            child: Image.asset(
-              'assets/images/logo3.png',
-              cacheHeight: 100,
-              cacheWidth: 100,
-              height: 100,
-              width: 100,
+            child: Text(
+              'DEBUG',
+              style: TextStyle(
+                  fontSize: 40,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold),
             ),
           ),
         ),
@@ -83,7 +83,7 @@ class UygulamaSayfasi extends State<MyApp> {
               ),
               // ignore: deprecated_member_use
               title: Text(
-                'Donanım',
+                'Popüler',
                 style: TextStyle(color: Colors.lightBlue),
               ),
             ),

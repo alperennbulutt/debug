@@ -24,74 +24,54 @@ class FirstPage extends StatelessWidget {
                   ),
                 )
               : GridView.builder(
+                  scrollDirection: Axis.horizontal,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 1),
                   itemCount: snapshot.data.docs.length,
                   itemBuilder: (context, index) {
                     DocumentSnapshot products = snapshot.data.docs[index];
-                    {
-                      return MaterialApp(
-                        debugShowCheckedModeBanner:
-                            false, //debug yazısını kaldırmak icin
-                        home: Scaffold(
-                          backgroundColor: Colors.amber,
-                          body: SafeArea(
-                            child: SingleChildScrollView(
-                              child: Container(
+                    return Scaffold(
+                      body: Column(
+                        children: [
+                          Container(
+                            color: Colors.green,
+                            width: 400,
+                            height: 300,
+                            child: Card(
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            FirstPageDetail(index: index)),
+                                  );
+                                },
                                 child: Column(
-                                  children: <Widget>[
-                                    //1.kısım yatay kaydırılan
-                                    Container(
-                                      height: 300,
-                                      child: ListView(
-                                        scrollDirection: Axis.horizontal,
-                                        children: <Widget>[
-                                          GestureDetector(
-                                            onTap: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        FirstPageDetail(
-                                                            index: index)),
-                                              );
-                                            },
-                                            child: Container(
-                                              width: 300,
-                                              child: Scaffold(
-                                                appBar: AppBar(
-                                                  title:
-                                                      Text(products['baslik']),
-                                                ),
-                                                body: Column(
-                                                  children: [
-                                                    Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Text(products['tarih']),
-                                                      ],
-                                                    ),
-                                                    Image.network(
-                                                        products['foto']),
-                                                    Text(products['icerik']),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
+                                  children: [
+                                    Title(
+                                        color: Colors.white,
+                                        child: Text(
+                                          products['baslik'],
+                                          style: TextStyle(
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold),
+                                        )),
+                                    Expanded(
+                                        child: Image.network(products['foto'])),
+                                    Expanded(
+                                        child: Text(
+                                      products['icerik'],
+                                      style: TextStyle(fontSize: 20),
+                                    )),
                                   ],
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      );
-                    }
+                        ],
+                      ),
+                    );
                   },
                 );
         });

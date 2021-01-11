@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:874017520856:android:63b357a3aeda7e854eebad",
         "android_client_info": {
-          "package_name": "com.example.debug"
+          "package_name": "com.uygulama.debug"
         }
       },
       "oauth_client": [

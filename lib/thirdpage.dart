@@ -33,7 +33,7 @@ class ThirdPage extends StatelessWidget {
                           DocumentSnapshot products = snapshot.data.docs[index];
                           return SafeArea(
                             child: Container(
-                              margin: EdgeInsets.all(3.0),
+                              margin: EdgeInsets.all(4.0),
                               color: Colors.white60,
                               height: _size.height * 0.2,
                               child: Row(
@@ -90,9 +90,9 @@ class ThirdPage extends StatelessWidget {
                                       ),
                                       child: Image.network(
                                         products["foto"],
-                                        width: 80,
-                                        height: 90,
-                                        fit: BoxFit.cover,
+                                        cacheWidth: 100,
+                                        cacheHeight: 100,
+                                        fit: BoxFit.scaleDown,
                                       ),
                                     ),
                                   )
@@ -107,19 +107,4 @@ class ThirdPage extends StatelessWidget {
       ),
     );
   }
-/*
-  //firebase e ekleme fonksiyonu
-  CollectionReference users =
-      FirebaseFirestore.instance.collection('kullanici');
-  void addUser() {
-    users
-        .add({
-          'full_name': "sero", // John Doe
-          'company': "sero", // Stokes and Sons
-          'age': 42 // 42
-        })
-        .then((value) => print(
-            "User Added")) //buradaki then eğerki add fonksiyonu başarılı olursa burası çalışacaktır
-        .catchError((error) => print("Failed to add user: $error"));
-  }*/
 }

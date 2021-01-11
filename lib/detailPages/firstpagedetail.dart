@@ -13,66 +13,96 @@ class FirstPageDetail extends StatefulWidget {
 class _FirstPageDetailState extends State<FirstPageDetail> {
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<QuerySnapshot>(
-      stream:
-          FirebaseFirestore.instance.collection('firstpagedetail').snapshots(),
-      builder: (context, snapshot) {
-        return !snapshot.hasData
-            //loading page is here
-            ? Scaffold(
-                backgroundColor: Colors.white,
-                body: Container(
-                  child: LoadingFlipping.circle(
-                    borderColor: Colors.white,
-                    borderSize: 3.0,
-                    size: 75.0,
+    return Scaffold(
+      appBar: AppBar(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(30),
+              bottomRight: Radius.circular(30)),
+        ),
+        backgroundColor: Colors.amber[100],
+      ),
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: StreamBuilder<QuerySnapshot>(
+          stream: FirebaseFirestore.instance
+              .collection("firstpagedetail")
+              .snapshots(),
+          builder: (context, snapshot) {
+            //print("deneme 1234 " + widget.index.toString());
+            return !snapshot.hasData
+                //loading page is here
+                ? Scaffold(
                     backgroundColor: Colors.white,
-                    duration: Duration(milliseconds: 500),
-                  ),
-                ),
-              )
-            : MaterialApp(
-                debugShowCheckedModeBanner: false,
-                home: Scaffold(
-                  appBar: AppBar(
-                    backgroundColor: Colors.amber,
-                    title: Center(
-                        child:
-                            Text(snapshot.data.docs[widget.index]["baslik"])),
-                  ),
-                  body: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        child: SizedBox(
-                          child: Column(
-                            children: [
-                              Image.network(
-                                  snapshot.data.docs[widget.index]["foto"]),
-                              Text(
-                                snapshot.data.docs[widget.index]["icerik"],
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 15),
+                    body: Container(
+                      child: LoadingFlipping.circle(
+                        borderColor: Colors.white,
+                        borderSize: 3.0,
+                        size: 75.0,
+                        backgroundColor: Colors.white,
+                        duration: Duration(milliseconds: 500),
+                      ),
+                    ),
+                  )
+                : SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  snapshot.data.docs[widget.index]["baslik"],
+                                  style: TextStyle(
+                                      fontSize: 40,
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ),
-                            ],
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(10),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10.0),
+                            ),
+                            child: Image.network(
+                              snapshot.data.docs[widget.index]["foto"],
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
-                      ),
-                      Wrap(
-                        crossAxisAlignment: WrapCrossAlignment.center,
-                        children: [
-                          Text(
-                            snapshot.data.docs[widget.index]["tarih"],
-                            style: TextStyle(color: Colors.black38),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(1.0),
+                              child: Text(
+                                snapshot.data.docs[widget.index]["tarih"],
+                                style: TextStyle(
+                                  color: Color(0xFF325384).withOpacity(0.7),
+                                  fontSize: 12.0,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: Text(
+                            snapshot.data.docs[widget.index]["icerik"],
+                            style: TextStyle(fontSize: 20),
                           ),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              );
-      },
+                        ),
+                      ],
+                    ),
+                  );
+          },
+        ),
+      ),
     );
   }
 }

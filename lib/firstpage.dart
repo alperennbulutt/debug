@@ -18,61 +18,82 @@ class FirstPage extends StatelessWidget {
                       borderColor: Colors.white,
                       borderSize: 3.0,
                       size: 75.0,
-                      backgroundColor: Colors.orange,
                       duration: Duration(milliseconds: 500),
                     ),
                   ),
                 )
-              : GridView.builder(
-                  scrollDirection: Axis.vertical,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 1),
-                  itemCount: snapshot.data.docs.length,
-                  itemBuilder: (context, index) {
-                    DocumentSnapshot products = snapshot.data.docs[index];
-                    return Scaffold(
-                      body: Column(
-                        children: [
-                          Container(
-                            color: Colors.green,
-                            width: 400,
-                            height: 400,
-                            child: Card(
-                              child: GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            FirstPageDetail(index: index)),
-                                  );
-                                },
-                                child: Column(
-                                  children: [
-                                    Title(
-                                        color: Colors.white,
-                                        child: Text(
-                                          products['baslik'],
-                                          style: TextStyle(
-                                              fontSize: 30,
-                                              fontWeight: FontWeight.bold),
-                                        )),
-                                    Expanded(
-                                        child: Image.network(products['foto'])),
-                                    Expanded(
-                                        child: Text(
-                                      products['icerik'],
-                                      style: TextStyle(fontSize: 20),
-                                    )),
+              : SafeArea(
+                  child: GridView.builder(
+                    scrollDirection: Axis.vertical,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 1),
+                    itemCount: snapshot.data.docs.length,
+                    itemBuilder: (context, index) {
+                      DocumentSnapshot products = snapshot.data.docs[index];
+                      return Scaffold(
+                        body: Center(
+                          child: Column(
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(10),
+                                      topRight: Radius.circular(10),
+                                      bottomLeft: Radius.circular(10),
+                                      bottomRight: Radius.circular(10)),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black38.withOpacity(0.3),
+                                      spreadRadius: 3,
+                                      blurRadius: 3,
+                                      offset: Offset(
+                                          0, 8), // changes position of shadow
+                                    ),
                                   ],
                                 ),
+                                width: 390,
+                                height: 385,
+                                child: Card(
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                FirstPageDetail(index: index)),
+                                      );
+                                    },
+                                    child: Column(
+                                      children: [
+                                        Title(
+                                            color: Colors.white,
+                                            child: Text(
+                                              products['baslik'],
+                                              style: TextStyle(
+                                                  fontSize: 30,
+                                                  fontWeight: FontWeight.bold),
+                                            )),
+                                        Expanded(
+                                            child: Image.network(
+                                                products['foto'])),
+                                        Expanded(
+                                            child: Text(
+                                          products['icerik'],
+                                          style: TextStyle(fontSize: 20),
+                                        )),
+                                      ],
+                                    ),
+                                  ),
+                                ),
                               ),
-                            ),
+                            ],
                           ),
-                        ],
-                      ),
-                    );
-                  },
+                        ),
+                      );
+                    },
+                  ),
                 );
         });
   }

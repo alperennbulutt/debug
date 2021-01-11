@@ -1,16 +1,11 @@
 # debug
 
-A new Flutter project.
+Teknoloji ve hayata dair haberler.
 
-## Getting Started
+## Nasil Basladi
 
-This project is a starting point for a Flutter application.
+Teknolojik haber uygulamasi olan 'DEBUG' dünyada gelişen teknoloji alanındaki haberleri en hizli ve güvenilir bir sekilde kullanicilarina ulastirmayi hedefler.
 
-A few resources to get you started if this is your first Flutter project:
+## Uygulama Haklari
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+'DEBUG' uygulamasının yasal hakları uygulamanın gelistiricisi ve yayınlayıcısı Alperen BULUT'a aittir.Haber içeriklerini kendi ortamlarınızda kullanmak istediğiniz takdirde , 'alperennbulutt23@gmail.com' mail adresine mail atarak gerek izinleri alabilirsiniz.(Izin alınmadan uygulamadan alinan iceriklerin telif hakları aranacaktır.)

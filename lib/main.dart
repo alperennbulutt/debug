@@ -34,25 +34,19 @@ class UygulamaSayfasi extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false, //debug yazısını kaldırmak için
-      title: "TEKNOLOJI",
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
-      ),
+
       home: Scaffold(
-        backgroundColor: Colors.amber,
         appBar: AppBar(
+          backgroundColor: Colors.amber[200],
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(10),
-                bottomRight: Radius.circular(20)),
+                bottomLeft: Radius.circular(25),
+                bottomRight: Radius.circular(25)),
           ),
           title: Center(
             child: Text(
               'DEBUG',
-              style: TextStyle(
-                  fontSize: 40,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
             ),
           ),
         ),
@@ -68,28 +62,25 @@ class UygulamaSayfasi extends State<MyApp> {
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.home,
-                color: Colors.orange,
+                color: Colors.red[900],
               ),
               // ignore: deprecated_member_use
               title: Text(
                 'Ana Sayfa',
-                style: TextStyle(color: Colors.orange),
+                style: TextStyle(color: Colors.red[900]),
               ),
             ),
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.smartphone,
-                color: Colors.lightBlue,
-              ),
+              icon: Icon(Icons.trending_up, color: Colors.brown[900]),
               // ignore: deprecated_member_use
               title: Text(
                 'Popüler',
-                style: TextStyle(color: Colors.lightBlue),
+                style: TextStyle(color: Colors.brown[900]),
               ),
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.videogame_asset,
+                Icons.public,
                 color: Colors.deepPurple,
               ),
               // ignore: deprecated_member_use

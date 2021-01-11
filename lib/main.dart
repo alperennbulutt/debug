@@ -40,8 +40,9 @@ class UygulamaSayfasi extends State<MyApp> {
           backgroundColor: Colors.amber[200],
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(25),
-                bottomRight: Radius.circular(25)),
+              bottomLeft: Radius.circular(25),
+              bottomRight: Radius.circular(25),
+            ),
           ),
           title: Center(
             child: Text(

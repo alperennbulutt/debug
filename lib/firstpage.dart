@@ -66,23 +66,46 @@ class FirstPage extends StatelessWidget {
                                       );
                                     },
                                     child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.stretch,
                                       children: [
-                                        Title(
-                                            color: Colors.white,
-                                            child: Text(
-                                              products['baslik'],
-                                              style: TextStyle(
-                                                  fontSize: 30,
-                                                  fontWeight: FontWeight.bold),
-                                            )),
                                         Expanded(
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Title(
+                                                  color: Colors.white,
+                                                  child: Text(
+                                                    products['baslik'],
+                                                    style: TextStyle(
+                                                        fontSize: 30,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  )),
+                                            ],
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.all(10),
+                                          child: ClipRRect(
+                                            borderRadius: BorderRadius.all(
+                                              Radius.circular(10.0),
+                                            ),
                                             child: Image.network(
-                                                products['foto'])),
+                                              products["foto"],
+                                              fit: BoxFit.cover,
+                                              cacheWidth: 250,
+                                            ),
+                                          ),
+                                        ),
                                         Expanded(
-                                            child: Text(
-                                          products['icerik'],
-                                          style: TextStyle(fontSize: 20),
-                                        )),
+                                          child: Text(
+                                            products['icerik'],
+                                            style: TextStyle(fontSize: 20),
+                                          ),
+                                        )
                                       ],
                                     ),
                                   ),

@@ -7,7 +7,6 @@ class ThirdPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.amber,
       body: SafeArea(
         child: Container(
           child: StreamBuilder<QuerySnapshot>(
@@ -33,57 +32,79 @@ class ThirdPage extends StatelessWidget {
                           DocumentSnapshot products = snapshot.data.docs[index];
                           return SafeArea(
                             child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(5),
+                                    topRight: Radius.circular(5),
+                                    bottomLeft: Radius.circular(5),
+                                    bottomRight: Radius.circular(5)),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black38.withOpacity(0.4),
+                                    spreadRadius: 3,
+                                    blurRadius: 10,
+                                    offset: Offset(
+                                        0, 8), // changes position of shadow
+                                  ),
+                                ],
+                              ),
                               margin: EdgeInsets.all(4.0),
-                              color: Colors.white60,
                               height: _size.height * 0.2,
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Expanded(
-                                    child: SizedBox(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            products["baslik"],
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 20.0,
-                                              color: Colors.black,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              products["baslik"],
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 30,
+                                                color: Colors.black,
+                                              ),
                                             ),
-                                          ),
-                                          Text(
+                                          ],
+                                        ),
+                                        Expanded(
+                                          child: Text(
                                             products["icerik"],
                                             style: TextStyle(
-                                              fontSize: _size.width * 0.03,
+                                              fontSize: _size.width * 0.04,
                                               color: Colors.black87,
                                               fontWeight: FontWeight.w400,
                                             ),
                                           ),
-                                          Wrap(
-                                            crossAxisAlignment:
-                                                WrapCrossAlignment.center,
-                                            children: [
-                                              Text(
-                                                products["tarih"],
-                                                style: TextStyle(
-                                                  color: Color(0xFF325384)
-                                                      .withOpacity(0.5),
-                                                  fontSize: 12.0,
-                                                ),
+                                        ),
+                                        Wrap(
+                                          crossAxisAlignment:
+                                              WrapCrossAlignment.center,
+                                          children: [
+                                            Text(
+                                              products["tarih"],
+                                              style: TextStyle(
+                                                color: Color(0xFF325384)
+                                                    .withOpacity(0.5),
+                                                fontSize: 12.0,
                                               ),
-                                            ],
-                                          )
-                                        ],
-                                      ),
+                                            ),
+                                          ],
+                                        )
+                                      ],
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.only(left: 16.0),
+                                    padding: EdgeInsets.all(10),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.all(
                                         Radius.circular(10.0),

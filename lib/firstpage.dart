@@ -10,15 +10,17 @@ class FirstPage extends StatelessWidget {
         stream: FirebaseFirestore.instance.collection("firtspage").snapshots(),
         builder: (context, snapshot) {
           return !snapshot.hasData
-              ? Scaffold(
-                  backgroundColor: Colors.amber,
-                  //loading page is here
-                  body: Container(
-                    child: LoadingFlipping.circle(
-                      borderColor: Colors.white,
-                      borderSize: 3.0,
-                      size: 75.0,
-                      duration: Duration(milliseconds: 500),
+              ? SafeArea(
+                  child: Scaffold(
+                    backgroundColor: Colors.amber,
+                    //loading page is here
+                    body: Container(
+                      child: LoadingFlipping.circle(
+                        borderColor: Colors.white,
+                        borderSize: 3.0,
+                        size: 75.0,
+                        duration: Duration(milliseconds: 500),
+                      ),
                     ),
                   ),
                 )
@@ -31,82 +33,111 @@ class FirstPage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       DocumentSnapshot products = snapshot.data.docs[index];
                       return Scaffold(
+                        backgroundColor: Colors.yellow[50],
                         body: Center(
                           child: Column(
                             children: [
-                              Container(
-                                margin: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(10),
-                                      topRight: Radius.circular(10),
-                                      bottomLeft: Radius.circular(10),
-                                      bottomRight: Radius.circular(10)),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black38.withOpacity(0.3),
-                                      spreadRadius: 3,
-                                      blurRadius: 3,
-                                      offset: Offset(
-                                          0, 8), // changes position of shadow
-                                    ),
-                                  ],
-                                ),
-                                width: 390,
-                                height: 385,
-                                child: Card(
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                FirstPageDetail(index: index)),
-                                      );
-                                    },
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.stretch,
-                                      children: [
-                                        Expanded(
-                                          child: Row(
+                              Expanded(
+                                child: Container(
+                                  margin:
+                                      const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10),
+                                        topRight: Radius.circular(10),
+                                        bottomLeft: Radius.circular(10),
+                                        bottomRight: Radius.circular(10)),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black38.withOpacity(0.3),
+                                        spreadRadius: 3,
+                                        blurRadius: 3,
+                                        offset: Offset(
+                                            0, 8), // changes position of shadow
+                                      ),
+                                    ],
+                                  ),
+                                  child: Card(
+                                    color: Colors.white70,
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  FirstPageDetail(
+                                                      index: index)),
+                                        );
+                                      },
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.stretch,
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Title(
+                                                    color: Colors.white,
+                                                    child: Expanded(
+                                                      child: Center(
+                                                        child: Text(
+                                                          products['baslik'],
+                                                          style: TextStyle(
+                                                              fontSize: 35,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
+                                                        ),
+                                                      ),
+                                                    )),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.all(10),
+                                            child: ClipRRect(
+                                              borderRadius: BorderRadius.all(
+                                                Radius.circular(10.0),
+                                              ),
+                                              child: Image.network(
+                                                products["foto"],
+                                                fit: BoxFit.fill,
+                                                height: 120,
+                                              ),
+                                            ),
+                                          ),
+                                          Row(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                                MainAxisAlignment.end,
                                             children: [
-                                              Title(
-                                                  color: Colors.white,
-                                                  child: Text(
-                                                    products['baslik'],
-                                                    style: TextStyle(
-                                                        fontSize: 30,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  )),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(1.0),
+                                                child: Text(
+                                                  products["tarih"],
+                                                  style: TextStyle(
+                                                    color: Color(0xFF325384)
+                                                        .withOpacity(0.5),
+                                                    fontSize: 12.0,
+                                                  ),
+                                                ),
+                                              ),
                                             ],
                                           ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.all(10),
-                                          child: ClipRRect(
-                                            borderRadius: BorderRadius.all(
-                                              Radius.circular(10.0),
+                                          Expanded(
+                                            child: SingleChildScrollView(
+                                              child: Text(
+                                                products['icerik'],
+                                                style: TextStyle(fontSize: 25),
+                                              ),
                                             ),
-                                            child: Image.network(
-                                              products["foto"],
-                                              fit: BoxFit.cover,
-                                              cacheWidth: 250,
-                                            ),
-                                          ),
-                                        ),
-                                        Expanded(
-                                          child: Text(
-                                            products['icerik'],
-                                            style: TextStyle(fontSize: 20),
-                                          ),
-                                        )
-                                      ],
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),

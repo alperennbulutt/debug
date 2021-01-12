@@ -15,6 +15,17 @@ class _SecondPageDetailState extends State<SecondPageDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Center(
+          widthFactor: 2,
+          child: Text(
+            'DEBUG',
+            style: TextStyle(
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+              color: Colors.brown[900],
+            ),
+          ),
+        ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(30),
@@ -22,7 +33,7 @@ class _SecondPageDetailState extends State<SecondPageDetail> {
         ),
         backgroundColor: Colors.amber[100],
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.yellow[50],
       body: SafeArea(
         child: StreamBuilder<QuerySnapshot>(
           stream: FirebaseFirestore.instance
@@ -44,60 +55,63 @@ class _SecondPageDetailState extends State<SecondPageDetail> {
                       ),
                     ),
                   )
-                : SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                : Scaffold(
+                    backgroundColor: Colors.yellow[50],
+                    body: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    snapshot.data.docs[widget.index]["baslik"],
+                                    style: TextStyle(
+                                        fontSize: 40,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(10),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10.0),
+                              ),
+                              child: Image.network(
+                                snapshot.data.docs[widget.index]["foto"],
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(1.0),
                                 child: Text(
-                                  snapshot.data.docs[widget.index]["baslik"],
+                                  snapshot.data.docs[widget.index]["tarih"],
                                   style: TextStyle(
-                                      fontSize: 40,
-                                      fontWeight: FontWeight.bold),
+                                    color: Color(0xFF325384).withOpacity(0.5),
+                                    fontSize: 12.0,
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(10),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10.0),
-                            ),
-                            child: Image.network(
-                              snapshot.data.docs[widget.index]["foto"],
-                              fit: BoxFit.cover,
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Text(
+                              snapshot.data.docs[widget.index]["icerik"],
+                              style: TextStyle(fontSize: 20),
                             ),
                           ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(1.0),
-                              child: Text(
-                                snapshot.data.docs[widget.index]["tarih"],
-                                style: TextStyle(
-                                  color: Color(0xFF325384).withOpacity(0.7),
-                                  fontSize: 12.0,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Text(
-                            snapshot.data.docs[widget.index]["icerik"],
-                            style: TextStyle(fontSize: 20),
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   );
           },

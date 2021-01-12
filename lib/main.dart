@@ -2,6 +2,7 @@
 import 'package:debug/secondpage.dart';
 import 'package:debug/thirdpage.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'firstpage.dart';
@@ -36,6 +37,7 @@ class UygulamaSayfasi extends State<MyApp> {
       debugShowCheckedModeBanner: false, //debug yazısını kaldırmak için
 
       home: Scaffold(
+        backgroundColor: Colors.yellow[50],
         appBar: AppBar(
           backgroundColor: Colors.amber[200],
           shape: RoundedRectangleBorder(
@@ -47,12 +49,17 @@ class UygulamaSayfasi extends State<MyApp> {
           title: Center(
             child: Text(
               'DEBUG',
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+                color: Colors.brown[900],
+              ),
             ),
           ),
         ),
         body: _sayfaOptions[_secilmisSayfa],
         bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.shifting,
           currentIndex: _secilmisSayfa,
           onTap: (int index) {
             setState(() {
@@ -61,18 +68,23 @@ class UygulamaSayfasi extends State<MyApp> {
           },
           items: [
             BottomNavigationBarItem(
+              backgroundColor: Colors.amber[200],
               icon: Icon(
                 Icons.home,
-                color: Colors.red[900],
+                color: Colors.brown[900],
               ),
               // ignore: deprecated_member_use
               title: Text(
                 'Ana Sayfa',
-                style: TextStyle(color: Colors.red[900]),
+                style: TextStyle(color: Colors.brown[900]),
               ),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.trending_up, color: Colors.brown[900]),
+              backgroundColor: Colors.amber[200],
+              icon: Icon(
+                Icons.trending_up,
+                color: Colors.brown[900],
+              ),
               // ignore: deprecated_member_use
               title: Text(
                 'Popüler',
@@ -80,14 +92,15 @@ class UygulamaSayfasi extends State<MyApp> {
               ),
             ),
             BottomNavigationBarItem(
+              backgroundColor: Colors.amber[200],
               icon: Icon(
                 Icons.public,
-                color: Colors.deepPurple,
+                color: Colors.brown[900],
               ),
               // ignore: deprecated_member_use
               title: Text(
                 'Sıradışı',
-                style: TextStyle(color: Colors.deepPurple),
+                style: TextStyle(color: Colors.brown[900]),
               ),
             ),
           ],

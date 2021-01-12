@@ -31,124 +31,7 @@ class SecondPage extends StatelessWidget {
                   body: SingleChildScrollView(
                     child: Column(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            height: 200,
-                            //dikey kayan kısım
-                            child: SafeArea(
-                              child: Expanded(
-                                child: ListView.builder(
-                                  shrinkWrap: true,
-                                  scrollDirection: Axis.vertical,
-                                  itemCount:
-                                      4, //veritanabından ilk iki haber burada gösterilecek
-                                  itemBuilder: (context, index) {
-                                    DocumentSnapshot products =
-                                        snapshot.data.docs[index];
-
-                                    return GestureDetector(
-                                      onTap: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  SecondPageDetail(
-                                                      index: index)),
-                                        );
-                                      },
-                                      child: Container(
-                                        child: Card(
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(15.0),
-                                          ),
-                                          color: Colors.brown[50],
-                                          child: Column(
-                                            children: [
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Expanded(
-                                                    child: Container(
-                                                      padding:
-                                                          EdgeInsets.all(5),
-                                                      child: Title(
-                                                        color: Colors.white,
-                                                        child: Center(
-                                                          child: Text(
-                                                            products['baslik'],
-                                                            style: TextStyle(
-                                                                fontSize: 30,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsets.all(5),
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                    Radius.circular(10.0),
-                                                  ),
-                                                  child: Container(
-                                                    padding: EdgeInsets.all(1),
-                                                    margin:
-                                                        const EdgeInsets.all(
-                                                            10),
-                                                    child: Image.network(
-                                                      products["foto"],
-                                                      fit: BoxFit.fill,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.end,
-                                                children: [
-                                                  Expanded(
-                                                    child: Container(
-                                                      child: Text(
-                                                        products["tarih"],
-                                                        style: TextStyle(
-                                                          color: Color(
-                                                                  0xFF325384)
-                                                              .withOpacity(0.5),
-                                                          fontSize: 12.0,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              Container(
-                                                padding: EdgeInsets.all(5),
-                                                child: Text(
-                                                  products['icerik'],
-                                                  style:
-                                                      TextStyle(fontSize: 20),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        //ikinci yatay kayan kısım
+                        //birinciyatay kayan kısım
                         Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: Container(
@@ -160,9 +43,9 @@ class SecondPage extends StatelessWidget {
                                 itemCount:
                                     5, //veritanabından yukarıda gösterilen 2 haberden sonra 3 haber de burada gösterilecek
                                 itemBuilder: (context, index) {
-                                  DocumentSnapshot products =
-                                      snapshot.data.docs[index +
-                                          4]; //yukarıda gösterilmiş iki haber atlandı
+                                  DocumentSnapshot products = snapshot
+                                          .data.docs[
+                                      index]; //yukarıda gösterilmiş iki haber atlandı
 
                                   return GestureDetector(
                                     onTap: () {
@@ -170,8 +53,7 @@ class SecondPage extends StatelessWidget {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                SecondPageDetail(
-                                                    index: index + 4)),
+                                                SecondPageDetail(index: index)),
                                       );
                                     },
                                     child: Container(
@@ -265,6 +147,124 @@ class SecondPage extends StatelessWidget {
                                     ),
                                   );
                                 },
+                              ),
+                            ),
+                          ),
+                        ),
+                        //ikinci dikay kayan kısım
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 200,
+                            //dikey kayan kısım
+                            child: SafeArea(
+                              child: Expanded(
+                                child: ListView.builder(
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.vertical,
+                                  itemCount:
+                                      4, //veritanabından ilk iki haber burada gösterilecek
+                                  itemBuilder: (context, index) {
+                                    DocumentSnapshot products =
+                                        snapshot.data.docs[index + 5];
+
+                                    return GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  SecondPageDetail(
+                                                      index: index + 5)),
+                                        );
+                                      },
+                                      child: Container(
+                                        child: Card(
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(15.0),
+                                          ),
+                                          color: Colors.brown[50],
+                                          child: Column(
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Expanded(
+                                                    child: Container(
+                                                      padding:
+                                                          EdgeInsets.all(5),
+                                                      child: Title(
+                                                        color: Colors.white,
+                                                        child: Center(
+                                                          child: Text(
+                                                            products['baslik'],
+                                                            style: TextStyle(
+                                                                fontSize: 30,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsets.all(5),
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                    Radius.circular(10.0),
+                                                  ),
+                                                  child: Container(
+                                                    padding: EdgeInsets.all(1),
+                                                    margin:
+                                                        const EdgeInsets.all(
+                                                            10),
+                                                    child: Image.network(
+                                                      products["foto"],
+                                                      fit: BoxFit.fill,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.end,
+                                                children: [
+                                                  Expanded(
+                                                    child: Container(
+                                                      child: Text(
+                                                        products["tarih"],
+                                                        style: TextStyle(
+                                                          color: Color(
+                                                                  0xFF325384)
+                                                              .withOpacity(0.5),
+                                                          fontSize: 12.0,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Container(
+                                                padding: EdgeInsets.all(5),
+                                                child: Text(
+                                                  products['icerik'],
+                                                  style:
+                                                      TextStyle(fontSize: 20),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
                               ),
                             ),
                           ),

@@ -1,4 +1,4 @@
-package com.example.debug
+package com.uygulama.debug
 
 import io.flutter.embedding.android.FlutterActivity
 

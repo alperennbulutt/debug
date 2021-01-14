@@ -16,13 +16,13 @@ class _FirstPageDetailState extends State<FirstPageDetail> {
     return Scaffold(
       appBar: AppBar(
         title: Center(
-          widthFactor: 2,
-          child: Text(
-            'DEBUG',
-            style: TextStyle(
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
-              color: Colors.brown[900],
+          widthFactor: 1.78,
+          child: Container(
+            width: 150,
+            height: 150,
+            child: Image.asset(
+              'assets/images/logo3.png',
+              fit: BoxFit.fill,
             ),
           ),
         ),

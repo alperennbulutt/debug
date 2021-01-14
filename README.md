@@ -8,4 +8,4 @@ Teknolojik haber uygulamasi olan 'DEBUG' dünyada gelişen teknoloji alanındaki
 
 ## Uygulama Haklari
 
-'DEBUG' uygulamasının yasal hakları uygulamanın gelistiricisi ve yayınlayıcısı Alperen BULUT'a aittir.Haber içeriklerini kendi ortamlarınızda kullanmak istediğiniz takdirde , 'alperennbulutt23@gmail.com' mail adresine mail atarak gerek izinleri alabilirsiniz.(Izin alınmadan uygulamadan alinan iceriklerin telif hakları aranacaktır.)
+'DEBUG' uygulamasının yasal hakları uygulamanın gelistiricisi ve yayınlayıcısı Alperen BULUT'a aittir.Haber içeriklerini kullanmak istediğiniz takdirde , 'alperennbulutt23@gmail.com' mail adresinden ulaşarak gerek izinleri alabilirsiniz.

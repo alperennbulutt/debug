@@ -12,11 +12,11 @@ class FirstPage extends StatelessWidget {
           return !snapshot.hasData
               ? SafeArea(
                   child: Scaffold(
-                    backgroundColor: Colors.amber,
+                    backgroundColor: Colors.amber[50],
                     //loading page is here
                     body: Container(
                       child: LoadingFlipping.circle(
-                        borderColor: Colors.white,
+                        borderColor: Colors.brown,
                         borderSize: 3.0,
                         size: 75.0,
                         duration: Duration(milliseconds: 500),

@@ -15,17 +15,6 @@ class _SecondPageDetailState extends State<SecondPageDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          widthFactor: 1.78,
-          child: Container(
-            width: 150,
-            height: 150,
-            child: Image.asset(
-              'assets/images/logo3.png',
-              fit: BoxFit.fill,
-            ),
-          ),
-        ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(30),

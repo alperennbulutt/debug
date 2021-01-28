@@ -10,7 +10,9 @@ class ThirdPage extends StatelessWidget {
       body: SafeArea(
         child: Container(
           child: StreamBuilder<QuerySnapshot>(
-              stream: FirebaseFirestore.instance.collection("Oyun").snapshots(),
+              stream: FirebaseFirestore.instance
+                  .collection("thirdpage")
+                  .snapshots(),
               builder: (context, snapshot) {
                 return !snapshot.hasData
                     ? SafeArea(
@@ -47,11 +49,11 @@ class ThirdPage extends StatelessWidget {
                                         bottomRight: Radius.circular(5)),
                                     boxShadow: [
                                       BoxShadow(
-                                        color: Colors.black38.withOpacity(0.4),
-                                        spreadRadius: 3,
-                                        blurRadius: 10,
-                                        offset: Offset(
-                                            0, 8), // changes position of shadow
+                                        color: Colors.black38.withOpacity(0.3),
+                                        spreadRadius: 1,
+                                        blurRadius: 2,
+                                        offset: Offset(2,
+                                            0.5), // changes position of shadow
                                       ),
                                     ],
                                   ),

@@ -41,24 +41,10 @@ class FirstPage extends StatelessWidget {
                                 child: Container(
                                   margin:
                                       const EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        topRight: Radius.circular(10),
-                                        bottomLeft: Radius.circular(10),
-                                        bottomRight: Radius.circular(10)),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black38.withOpacity(0.3),
-                                        spreadRadius: 3,
-                                        blurRadius: 3,
-                                        offset: Offset(
-                                            0, 8), // changes position of shadow
-                                      ),
-                                    ],
-                                  ),
                                   child: Card(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15.0),
+                                    ),
                                     color: Colors.white70,
                                     child: GestureDetector(
                                       onTap: () {
@@ -129,13 +115,18 @@ class FirstPage extends StatelessWidget {
                                             ],
                                           ),
                                           Expanded(
-                                            child: SingleChildScrollView(
-                                              child: Text(
-                                                products['icerik'],
-                                                style: TextStyle(fontSize: 25),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(2.0),
+                                              child: SingleChildScrollView(
+                                                child: Text(
+                                                  products['icerik'],
+                                                  style:
+                                                      TextStyle(fontSize: 25),
+                                                ),
                                               ),
                                             ),
-                                          )
+                                          ),
                                         ],
                                       ),
                                     ),

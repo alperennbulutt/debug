@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:debug/detailPages/firstpagedetail.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_animations/loading_animations.dart';
 
+import 'detailPages/secondpagedetail.dart';
 
 class StandartPage extends StatelessWidget {
   const StandartPage({
@@ -12,7 +12,7 @@ class StandartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: FirebaseFirestore.instance.collection("firtspage").snapshots(),
+      stream: FirebaseFirestore.instance.collection("secondpage").snapshots(),
       builder: (context, snapshot) {
         return !snapshot.hasData
             ? SafeArea(
@@ -44,7 +44,7 @@ class StandartPage extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                FirstPageDetail(index: index)),
+                                SecondPageDetail(index: index)),
                       );
                     },
                     child: Container(

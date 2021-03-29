@@ -27,7 +27,7 @@ class UygulamaSayfasi extends State<MyApp> {
   final _sayfaOptions = [
     //classlar burada çalıştırılır
     //uygulama fikri sonradan değiştiğindne class isimleri alakasız
-    FirstPage(),
+    StandartPage(),
     SecondPage(),
     ThirdPage(),
   ];

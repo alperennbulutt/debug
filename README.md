@@ -1,9 +1,6 @@
 # debug
 
-Teknoloji ve hayata dair haberler.
+Kişisel haber uygulamam.
 
-## Nasil Basladi
-
-Teknolojik haber uygulamasi olan 'DEBUG' dünyada gelişen teknoloji alanındaki haberleri en hizli ve güvenilir bir sekilde kullanicilarina ulastirmayi hedefler.
 
 
